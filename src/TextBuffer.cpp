@@ -114,7 +114,10 @@ std::pair<size_t, size_t> TextBuffer::getWordBoundaries(size_t pos) const
     {
         wordEnd++;
     }
-    return {wordStart, wordEnd};
+
+    // Convert back from character index to global position
+    size_t globalLineStart = pos - charIdx;
+    return {globalLineStart + wordStart, globalLineStart + wordEnd};
 }
 
 TriePad::Action TextBuffer::insert(size_t pos, const std::string &text)

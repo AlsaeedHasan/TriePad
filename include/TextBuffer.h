@@ -22,6 +22,8 @@ private:
 
 public:
     TextBuffer();
+    // Helper functions for search and replace
+    size_t length() const { return totalChars; }
 
     // Load full text (e.g., from a file)
     void load(const std::string &content);
@@ -29,15 +31,12 @@ public:
     // Save current text into a single string (for saving to a file)
     std::string save() const;
 
+    // Extract word boundaries at cursor position (used with search and replace feature)
+    std::pair<size_t, size_t> getWordBoundaries(size_t pos) const;
+
     // Insert text at cursor position -> returns an Action that can be undone
     TriePad::Action insert(size_t pos, const std::string &text);
 
     // Erase a specific number of characters starting from cursor position -> returns an Action
     TriePad::Action erase(size_t pos, size_t length);
-
-    // Helper functions for search and replace
-    size_t length() const { return totalChars; }
-
-    // Extract word boundaries at cursor position (used with search and replace feature)
-    std::pair<size_t, size_t> getWordBoundaries(size_t pos) const;
 };

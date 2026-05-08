@@ -9,7 +9,7 @@ Element RenderDocument(const EditorContext &ctx);
 Element RenderStatusLine(const EditorContext &ctx);
 Element RenderFooter();
 
-// دوال بناء القوائم المنبثقة
+// Modal components
 Component CreateSearchModal(EditorContext &ctx, const InputOption &opt);
 Component CreateOpenModal(EditorContext &ctx, const InputOption &opt);
 Component CreateSaveModal(EditorContext &ctx, const InputOption &opt);

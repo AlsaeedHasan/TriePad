@@ -9,34 +9,34 @@
 
 struct EditorContext
 {
-    // الأجزاء الأساسية للمحرك
+    // Core engine components
     std::shared_ptr<TextBuffer> buffer;
     std::shared_ptr<ActionHistory> history;
     std::shared_ptr<TrieDictionary> dictionary;
     std::shared_ptr<SearchEngine> searchEngine;
 
-    // حالة الأديتور والمؤشر
+    // Editor state and cursor
     size_t cursorPos = 0;
     bool isInsertMode = false;
     std::string statusMessage = "Ready";
 
-    // حالة القوائم المنبثقة (Modals)
+    // Modal state
     bool showSearch = false;
     bool showOpen = false;
     bool showSave = false;
 
-    // مدخلات المستخدم في القوائم
+    // User input in modals
     std::string searchQuery;
     std::string fileNameInput;
     std::string savePathInput;
 
-    // نتائج البحث
+    // Search results
     std::vector<size_t> searchResults;
     size_t searchLen = 0;
 
     EditorContext();
 
-    // دوال التحكم المنطقي
+    // Control logic functions
     void handleUndo();
     void handleRedo();
     void handleTabComplete();

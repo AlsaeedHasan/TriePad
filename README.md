@@ -39,7 +39,7 @@ Building TriePad is straightforward via CMake.
 1. Clone the repository and navigate to its directory:
 
    ```bash
-   git clone <repository_url>
+   git clone https://github.com/AlsaeedHasan/TriePad.git
    cd TriePad
    ```
 
